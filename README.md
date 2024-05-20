@@ -5,7 +5,7 @@ Guidance and overview of tourist places in India which are classified and seggre
 # PROJECT DETAILS:-
 Project Demo URL: https://inshopping.z13.web.core.windows.net/ 
 
-Demo Video URL:
+Demo Video URL: https://www.youtube.com/watch?v=Sqg6A7RQX90 
 
 Git Hub Repository URL:  https://github.com/AmishaMohammed/Trendy-treasure.git 
 
