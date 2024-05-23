@@ -12,8 +12,11 @@ Git Hub Repository URL:  https://github.com/AmishaMohammed/Trendy-treasure.git
 Industry: E-Commerce Shopping Website
 # ROLES AND RESPONSIBILITIES:-
 Mohammed Amisha (Project management) : Manages the web development project.
+
 Eedibilli Satya Sriram Dilip (Supporter)  : Maintenance of project infrastructure.
+
 Golemgari Anusha (Deployment) : Deployment and Responsible for image searching, logo creation and chat bot questions.
+
 Thalla Shivani (Documentation) : Responsible for managing the documentation process.
 
 # INTRODUCTION:-
