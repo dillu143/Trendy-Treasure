@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .chat-box {
+            width: 300px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 50px auto; /* Center horizontally */
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* Align messages to the end of the container */
+            margin-bottom: 10px; /* Add some space between messages */
+        }
+
+        .user-message {
+            background-color: #c7f4ff;
+            align-self: flex-end; /* Align user messages to the end of the container */
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 5px 0;
+        }
+
+        .chatbot-message {
+            background-color: #e1ffc7;
+            align-self: flex-start; /* Align chatbot messages to the start of the container */
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 5px 0;
+        }
+
+        .typing-indicator {
+            color: #ccc;
+            font-style: italic;
+            align-self: flex-start; /* Align typing animation to the right */
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px; /* Reduced margin-top */
+            text-align: center; /* Added to center the text within the input field */
+        }
+
+        .input-field {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            margin-right: 10px; /* Reduced the margin for better alignment */
+        }
+
+        .send-button {
+            width: 50px;
+            height: 50px;
+            background-color: #ca1b6a;
+            color: white;
+            border: none;
+            border-radius: 50%; /* Make the button round */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-box" id="chatBox">
+        <!-- Messages will be displayed here -->
+    </div>
+    <div class="input-container">
+        <input type="text" id="messageInput" class="input-field" placeholder="Type your message...">
+        <button onclick="sendMessage()" class="send-button">&#9658;</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var messageInput = document.getElementById("messageInput");
+            var messageText = messageInput.value.trim();
+
+            if (messageText !== "") {
+                var chatBox = document.getElementById("chatBox");
+                var messageContainer = document.createElement("div");
+                messageContainer.classList.add("message-container");
+
+                var userMessage = document.createElement("div");
+                userMessage.classList.add("message", "user-message");
+                userMessage.textContent = messageText;
+
+                var typingIndicator = document.createElement("div");
+                typingIndicator.classList.add("message", "typing-indicator");
+                typingIndicator.textContent = "Typing...";
+
+                messageContainer.appendChild(userMessage);
+                messageContainer.appendChild(typingIndicator);
+                chatBox.appendChild(messageContainer);
+
+                // Simulate typing delay before showing the actual response
+                setTimeout(function() {
+                    // Remove typing indicator
+                    messageContainer.removeChild(typingIndicator);
+
+                    var chatbotMessage = document.createElement("div");
+                    chatbotMessage.classList.add("message", "chatbot-message");
+                    // Replace this with your actual chatbot response
+                    chatbotMessage.textContent = "This is a sample response from the chatbot.";
+
+                    messageContainer.appendChild(chatbotMessage);
+
+                    // Scroll to the bottom of the chat box
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }, 1500);
+
+                // Clear the input field after sending the message
+                messageInput.value = "";
+            }
+        }
+
+        // Pressing enter key will also trigger sending the message
+        document.getElementById("messageInput").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
